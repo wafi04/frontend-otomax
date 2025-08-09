@@ -1,5 +1,3 @@
-"use client";
-
 import { CategoryTable } from "@/features/dashboard/components/category/category-table";
 import { useCategoryStore } from "@/features/dashboard/services/api";
 import { CategoryData } from "@/features/dashboard/types/category";
@@ -22,6 +20,7 @@ export default function ManageCategory() {
     page,
     limit,
   } = useCategoryStore();
+
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -31,7 +30,6 @@ export default function ManageCategory() {
         await fetchCategories();
       } catch (error) {
         toast.error("Failed to load categories");
-        console.error("Error fetching categories:", error);
       } finally {
         setIsLoading(false);
       }
