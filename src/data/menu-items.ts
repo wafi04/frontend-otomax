@@ -44,12 +44,12 @@ export const menuItems : MenuItem[] = [
         id: 'users',
         label: 'Users',
         icon: Users,
-        href: '/users',
+        href: '/dashboard/users',
         badge: '12',
         subItems: [
-            { label: 'All Users', href: '/users/all' },
-            { label: 'Roles', href: '/users/roles' },
-            { label: 'Permissions', href: '/users/permissions' }
+            { label: 'All Users', href: '/dashboard/users/all' },
+            { label: 'Roles', href: '/dashboard/users/roles' },
+            { label: 'Permissions', href: '/dashboard/users/permissions' }
         ]
     },
     {

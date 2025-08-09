@@ -4,6 +4,7 @@ import { PaginationResponse } from "@/types/response";
 import { CategoryData } from "../form/category";
 import { CategoryTable } from "../components/category-table";
 import { useCategoryStore } from "../hooks/api";
+import { HeaderDashboard } from "@/components/custom/headerdashboard";
 
 export default function ManageCategory() {
   const {
@@ -49,14 +50,8 @@ export default function ManageCategory() {
   };
 
   return (
-    <main className="container  mx-auto py-6 space-y-6">
-      <div className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold tracking-tight">Manage Categories</h1>
-        <p className="text-muted-foreground">
-          Create, edit, and manage your product categories
-        </p>
-      </div>
-
+    <main className="p-6">
+    <HeaderDashboard title="All Categories"/>
       {categories && (
         <CategoryTable
           categories={categories as CategoryData[]}

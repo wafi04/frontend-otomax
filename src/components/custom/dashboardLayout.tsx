@@ -8,7 +8,7 @@ interface DashboardLayoutProps {
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
     <SidebarProvider>
-      <AppSidebar />
+      <AppSidebar className="border-r- border-2"/>
       <SidebarInset>
         {children}
       </SidebarInset>

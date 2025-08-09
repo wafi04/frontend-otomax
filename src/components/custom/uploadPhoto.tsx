@@ -11,7 +11,7 @@ interface PhotoUploaderProps {
   onUploadError?: (error: string) => void;
   className?: string;
   accept?: string;
-  maxSize?: number; // in bytes
+  maxSize?: number; 
   preview?: boolean;
   multiple?: boolean;
 }
@@ -21,7 +21,7 @@ export function PhotoUploader({
   onUploadError,
   className,
   accept = "image/*",
-  maxSize = 10 * 1024 * 1024, // 10MB
+  maxSize = 10 * 1024 * 1024, 
   preview = true,
   multiple = false,
 }: PhotoUploaderProps) {
@@ -139,7 +139,7 @@ export function PhotoUploader({
 
           {/* Error Message */}
           {error && (
-            <div className="text-sm text-red-600 bg-red-50 p-2 rounded">
+            <div className="text-sm text-red-600 p-2 rounded">
               {error}
             </div>
           )}

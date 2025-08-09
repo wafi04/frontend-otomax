@@ -18,7 +18,7 @@
     --muted-foreground: 210 40% 98% / 0.7; /* rgba(248, 250, 252, 0.7) */
     --accent: 43 100% 50%; /* #ffb703 */
     --accent-foreground: 219 100% 10%; /* #001435 */
-    --destructive: 27.325 24.5% 57.7%; /* oklch(0.577 0.245 27.325) dengan perkiraan HSL */
+    --destructive: 0 84% 60%;; /* oklch(0.577 0.245 27.325) dengan perkiraan HSL */
     --destructive-foreground: 0 0% 98.5%; /* oklch(0.985 0 0) dengan perkiraan HSL */
     --border: 213 93% 64% / 0.2; /* rgba(79, 156, 249, 0.2) */
     --input: 213 93% 64% / 0.2; /* rgba(79, 156, 249, 0.2) */
@@ -46,7 +46,7 @@
     --muted-foreground: 210 40% 98% / 0.7; /* rgba(248, 250, 252, 0.7) */
     --accent: 43 100% 50%; /* #ffb703 */
     --accent-foreground: 219 100% 10%; /* #001435 */
-    --destructive: 25.723 14.1% 39.6%; /* oklch(0.396 0.141 25.723) dengan perkiraan HSL */
+    --destructive: 0 84% 60%; /* oklch(0.396 0.141 25.723) dengan perkiraan HSL */
     --destructive-foreground: 0 0% 98.5%; /* oklch(0.985 0 0) dengan perkiraan HSL */
     --border: 213 93% 64% / 0.2; /* rgba(79, 156, 249, 0.2) */
     --input: 213 93% 64% / 0.2; /* rgba(79, 156, 249, 0.2) */

@@ -26,7 +26,7 @@ import { Button } from "@/components/ui/button";
 import { PhotoUploader } from "@/components/custom/uploadPhoto";
 import { useCategoryStore } from "../hooks/api";
 import { useEffect } from "react";
-import { status } from "../../data/data-status";
+import { status } from "../../../../data/data-status";
 
 export const FromCategory = ({
   initialData,
