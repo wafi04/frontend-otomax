@@ -135,9 +135,9 @@ export function CategoryTable({
             categories.map((category) => (
               <TableRow key={category.id}>
                 <TableCell>
-                  {category.image ? (
+                  {category.thumbnail ? (
                     <img
-                      src={category.image}
+                      src={category.thumbnail}
                       alt={category.name}
                       className="h-10 w-10 rounded-md object-cover"
                     />

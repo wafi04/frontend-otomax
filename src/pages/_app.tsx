@@ -5,9 +5,9 @@ import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  
-  const isDashboardPage = router.pathname.startsWith('/dashboard');
-  
+
+  const isDashboardPage = router.pathname.startsWith("/dashboard");
+
   if (isDashboardPage) {
     return (
       <DashboardLayout>
@@ -15,6 +15,6 @@ export default function App({ Component, pageProps }: AppProps) {
       </DashboardLayout>
     );
   }
-  
+
   return <Component {...pageProps} />;
 }

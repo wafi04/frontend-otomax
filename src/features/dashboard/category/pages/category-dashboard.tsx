@@ -26,7 +26,6 @@ export default function ManageCategory() {
         await fetchCategories();
       } catch (error) {
         toast.error("Failed to load categories");
-        console.error("Error fetching categories:", error);
       } finally {
         setIsLoading(false);
       }
@@ -51,7 +50,7 @@ export default function ManageCategory() {
 
   return (
     <main className="p-6">
-    <HeaderDashboard title="All Categories"/>
+      <HeaderDashboard title="All Categories" />
       {categories && (
         <CategoryTable
           categories={categories as CategoryData[]}

@@ -7,7 +7,9 @@ export type CategoryData = {
   code?: string;
   brand: string;
   bannerUrl?: string;
-  image?: string;
+  thumbnail?: string;
+  type: string;
+  information: string;
   desc: string;
   requestBy?: string;
   isCheckNickname: string;

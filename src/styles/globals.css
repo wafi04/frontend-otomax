@@ -4,53 +4,63 @@
 
 @layer base {
   :root {
-    --background: 219 100% 10%; /* #001435 */
-    --foreground: 210 40% 98%; /* #f8fafc */
-    --card: 217 100% 16%; /* #001f54 */
-    --card-foreground: 210 40% 98%; /* #f8fafc */
-    --popover: 217 100% 16%; /* #001f54 */
-    --popover-foreground: 210 40% 98%; /* #f8fafc */
-    --primary: 213 93% 64%; /* #4f9cf9 */
-    --primary-foreground: 219 100% 10%; /* #001435 */
-    --secondary: 197 70% 73%; /* #8ecae6 */
-    --secondary-foreground: 219 100% 10%; /* #001435 */
-    --muted: 210 40% 98% / 0.1; /* rgba(248, 250, 252, 0.1) */
-    --muted-foreground: 210 40% 98% / 0.7; /* rgba(248, 250, 252, 0.7) */
-    --accent: 43 100% 50%; /* #ffb703 */
-    --accent-foreground: 219 100% 10%; /* #001435 */
-    --destructive: 0 84% 60%;; /* oklch(0.577 0.245 27.325) dengan perkiraan HSL */
-    --destructive-foreground: 0 0% 98.5%; /* oklch(0.985 0 0) dengan perkiraan HSL */
-    --border: 213 93% 64% / 0.2; /* rgba(79, 156, 249, 0.2) */
-    --input: 213 93% 64% / 0.2; /* rgba(79, 156, 249, 0.2) */
-    --ring: 213 93% 64% / 0.3; /* rgba(79, 156, 249, 0.3) */
-    --chart-1: 213 93% 64%; /* #4f9cf9 */
-    --chart-2: 197 70% 73%; /* #8ecae6 */
+    --flashsale-image: url("https://client-cdn.bangjeff.com/veinstore.id/meta/background.webp");
+    --popular-background: 215.56 21.6% 24.51%;
+    --popular-image: url("https://client-cdn.bangjeff.com/veinstore.id/meta/background.webp");
+    --background: 220 19.15% 9.22%;
+    --foreground: 0 0% 96.08%;
+    --card: 212 23.81% 12.35%;
+    --card-foreground: 0 0% 96.08%;
+    --popover: 192 9.8% 10%;
+    --popover-foreground: 0 0% 96.08%;
+    --primary: 36.61 100% 50.2%;
+    --primary-foreground: 0 0% 96.08%;
+    --secondary: 212 23.81% 12.35%;
+    --secondary-foreground: 0 0% 96.08%;
+    --muted: 210 23.26% 16.86%;
+    --muted-foreground: 0 0% 96.08%;
+    --accent: 0 2.04% 71.18%;
+    --accent-foreground: 0 0% 96.08%;
+    --success: 142.09 70.56% 45.29%;
+    --success-foreground: 0 0% 96.08%;
+    --warning: 45.4 93.39% 47.45%;
+    --warning-foreground: 0 0% 96.08%;
+    --info: 217.22 91.22% 59.8%;
+    --info-foreground: 213.33 96.92% 87.25%;
+    --destructive: 332 60% 44.12%;
+    --destructive-foreground: 0 0% 96.08%;
+    --border: 0 0% 7.06%;
+    --input: 215.56 21.6% 24.51%;
+    --ring: 215.13 100% 37.84%;
+    --radius: 1rem;
+    --button-gradient-active: true;
+    --button-gradient-dir: to bottom;
+    --button-gradient-from: #f5b247;
+    --gradien-from-stop: 0%;
+    --button-gradient-via: #ff9c01;
+    --button-gradient-via-stop: 10%;
+    --button-gradient-to: #000000;
+    --button-gradient-to-stop: 100%;
+    --button-gradient-theme: linear-gradient(
+      to bottom,
+      #f5b247 0%,
+      #ff9c01 10%,
+      #000000 100%
+    );
+    --chart-1: 212 100% 70%; /* #5fb3f7 */
+    --chart-2: 210 70% 85%; /* #b8d4f0 */
     --chart-3: 43 100% 50%; /* #ffb703 */
     --chart-4: 31 100% 49%; /* #fb8500 */
     --chart-5: 347 83% 61%; /* #ef476f */
     --radius: 0.625rem;
-  }
-
-  .dark {
-    --background: 219 100% 10%; /* #001435 */
-    --foreground: 210 40% 98%; /* #f8fafc */
-    --card: 217 100% 16%; /* #001f54 */
-    --card-foreground: 210 40% 98%; /* #f8fafc */
-    --popover: 217 100% 16%; /* #001f54 */
-    --popover-foreground: 210 40% 98%; /* #f8fafc */
-    --primary: 213 93% 64%; /* #4f9cf9 */
-    --primary-foreground: 219 100% 10%; /* #001435 */
-    --secondary: 197 70% 73%; /* #8ecae6 */
-    --secondary-foreground: 219 100% 10%; /* #001435 */
-    --muted: 210 40% 98% / 0.1; /* rgba(248, 250, 252, 0.1) */
-    --muted-foreground: 210 40% 98% / 0.7; /* rgba(248, 250, 252, 0.7) */
-    --accent: 43 100% 50%; /* #ffb703 */
-    --accent-foreground: 219 100% 10%; /* #001435 */
-    --destructive: 0 84% 60%; /* oklch(0.396 0.141 25.723) dengan perkiraan HSL */
-    --destructive-foreground: 0 0% 98.5%; /* oklch(0.985 0 0) dengan perkiraan HSL */
-    --border: 213 93% 64% / 0.2; /* rgba(79, 156, 249, 0.2) */
-    --input: 213 93% 64% / 0.2; /* rgba(79, 156, 249, 0.2) */
-    --ring: 213 93% 64% / 0.3; /* rgba(79, 156, 249, 0.3) */
+    /* --primary: 32.22 23.08% 54.12%;
+    --primary-foreground: 60 9.09% 97.84%;
+    --secondary: 0 0% 12.94%;
+    --secondary-foreground: 60 9.09% 97.84%;
+    --muted: 210 6.78% 23.14%;
+    --muted-foreground: 60 9.09% 97.84%;
+    --accent: 210 6.78% 23.14%;
+    --accent-foreground: 60 9.09% 97.84%; */
   }
 
   * {
@@ -59,6 +69,22 @@
     input::-webkit-inner-spin-button {
       -webkit-appearance: none;
       margin: 0;
+    }
+    .product-thumbnail-container {
+      perspective: 25em;
+    }
+    .product-thumbnail-container img {
+      transform: rotateY(15deg) rotateX(-5deg);
+      transform-style: preserve-3d;
+      transition: transform 0.3s ease;
+    }
+
+    .container {
+      width: 100%;
+      margin-right: auto;
+      margin-left: auto;
+      padding-right: 1rem;
+      padding-left: 1rem;
     }
     .scrollbar-hide::-webkit-scrollbar {
       display: none;
@@ -76,14 +102,14 @@
     }
 
     .custom-scrollbar::-webkit-scrollbar-thumb {
-      background-color: #4f9cf9;
+      background-color: #5fb3f7; /* Updated dengan primary color baru */
       border-radius: 6px;
       border: 2px solid #001435;
     }
 
     /* Firefox */
     .custom-scrollbar {
-      scrollbar-color: #4f9cf9 #001435;
+      scrollbar-color: #5fb3f7 #001435; /* Updated dengan primary color baru */
       scrollbar-width: thin;
     }
 

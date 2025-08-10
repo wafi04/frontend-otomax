@@ -1,6 +1,1 @@
-
-export default function Home() {
-  return (
-    <main></main>
-  )
-}
+export { default } from "@/features/main/pages/home";

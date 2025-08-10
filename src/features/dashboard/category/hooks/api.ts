@@ -165,6 +165,7 @@ export const useCategoryStore = create<CategoryStore>((set, get) => ({
         `/categories?${params.toString()}`
       );
       const result = res.data;
+      console.log(result);
 
       if (result.statusCode === 200) {
         set({
