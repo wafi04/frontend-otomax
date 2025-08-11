@@ -1,7 +1,6 @@
-export function CardInput() {
+export function PlaceholderInput() {
   return (
-    <section className="relative scroll-mt-20 rounded-xl bg-card/50 shadow-2xl md:scroll-mt-[7.5rem]">
-      {/* Header */}
+    <>
       <div className="flex items-center overflow-hidden rounded-t-xl bg-card">
         <div className="flex h-10 w-10 items-center justify-center bg-primary font-semibold text-primary-foreground">
           1
@@ -85,6 +84,6 @@ export function CardInput() {
           </div>
         </div>
       </div>
-    </section>
+    </>
   );
 }
