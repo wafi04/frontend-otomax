@@ -1,8 +1,9 @@
+import { CategoryData } from "@/features/dashboard/category/form/category";
 import { useCategoryStore } from "@/features/dashboard/category/hooks/api";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-export function CardCategories() {
+export function CardCategories({ categories }: { categories: CategoryData[] }) {
   return (
     <section className="flex flex-col gap-y-8 pt-8">
       <div className="">
@@ -14,40 +15,13 @@ export function CardCategories() {
             Berikut adalah beberapa produk yang paling populer saat ini.
           </p>
         </div>
-        <ListCategories />
+        <ListCategories categories={categories} />
       </div>
     </section>
   );
 }
 
-export function ListCategories() {
-  const {
-    fetchCategories,
-    categories,
-    pagination,
-    searchTerm,
-    statusFilter,
-    page,
-    limit,
-    deleteCategory,
-  } = useCategoryStore();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const loadCategories = async () => {
-      try {
-        setIsLoading(true);
-        await fetchCategories();
-      } catch (error) {
-        toast.error("Failed to load categories");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadCategories();
-  }, [searchTerm, statusFilter, page, limit]);
-
+export function ListCategories({ categories }: { categories: CategoryData[] }) {
   return (
     <ul className="grid grid-cols-2 gap-4 md:grid-cols-3 opacity-100 transform-none">
       {categories?.map((item) => (

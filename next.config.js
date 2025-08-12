@@ -12,6 +12,9 @@ const nextConfig = {
       {
         hostname: "www.veinstore.id",
       },
+      {
+        hostname: "res.cloudinary.com",
+      },
     ],
   },
 };
