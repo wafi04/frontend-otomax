@@ -49,7 +49,7 @@ export async function getServerSideProps(context: any) {
   console.log(slug);
   try {
     const req = await axios.get(`${BACKEND_URL}/products/category/${slug}`);
-    console.log(req);
+    console.log(req.data);
     return {
       props: {
         productData: req.data || null,

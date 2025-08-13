@@ -1,17 +1,30 @@
 import Navbar from "@/components/custom/navbar";
 import { FormOrder } from "@/features/order/form/form";
-import Image from "next/image";
-
-import { api } from "@/lib/axios";
 import axios from "axios";
 import { BACKEND_URL } from "@/lib/constants";
 import { Banner } from "@/features/order/components/banner";
 import { HeaderProuct } from "@/features/order/components/headerProduk";
 import { ProductDataCard } from "@/features/order/components/productCard";
+export type Product = {
+  id: number;
+  name: string;
+  logoUrl: string | null;
+  description: string | null;
+  serviceStatus: string; // kalau mau lebih ketat bisa pake union "true" | "false"
+  categoryName: string;
+  categorySubName: string;
+  brand: string;
+  categoryDescription: string | null;
+  thumbnail: string;
+  instruction: string;
+  information: string;
+  placeholder1: string;
+  placeholder2: string;
+  isCheckNickname: string;
+  price: number;
+};
 
-export default function Order({ productData }: any) {
-  console.log(productData);
-
+export default function Order({ productData }: { productData: Product[] }) {
   return (
     <>
       <Navbar />
@@ -38,7 +51,7 @@ export default function Order({ productData }: any) {
             >
               <div className="col-span-3 col-start-1 flex flex-col gap-4 lg:col-span-2 lg:gap-8">
                 <FormOrder />
-                <ProductDataCard />
+                <ProductDataCard productData={productData} />
               </div>
             </form>
           </div>
@@ -51,7 +64,6 @@ export default function Order({ productData }: any) {
 // SSR function
 export async function getServerSideProps(context: any) {
   const { slug } = context.params;
-  console.log(slug);
   try {
     const req = await axios.get(`${BACKEND_URL}/products/category/${slug}`);
     return {
