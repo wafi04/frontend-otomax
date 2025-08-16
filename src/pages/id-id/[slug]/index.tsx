@@ -5,26 +5,14 @@ import { BACKEND_URL } from "@/lib/constants";
 import { Banner } from "@/features/order/components/banner";
 import { HeaderProuct } from "@/features/order/components/headerProduk";
 import { ProductDataCard } from "@/features/order/components/productCard";
-export type Product = {
-  id: number;
-  name: string;
-  logoUrl: string | null;
-  description: string | null;
-  serviceStatus: string; // kalau mau lebih ketat bisa pake union "true" | "false"
-  categoryName: string;
-  categorySubName: string;
-  brand: string;
-  categoryDescription: string | null;
-  thumbnail: string;
-  instruction: string;
-  information: string;
-  placeholder1: string;
-  placeholder2: string;
-  isCheckNickname: string;
-  price: number;
-};
+import { MethodSection } from "@/features/order/components/method";
+import { ProductToSell } from "@/types/productPrice";
 
-export default function Order({ productData }: { productData: Product[] }) {
+export default function Order({
+  productData,
+}: {
+  productData: ProductToSell[];
+}) {
   return (
     <>
       <Navbar />
@@ -52,6 +40,7 @@ export default function Order({ productData }: { productData: Product[] }) {
               <div className="col-span-3 col-start-1 flex flex-col gap-4 lg:col-span-2 lg:gap-8">
                 <FormOrder />
                 <ProductDataCard productData={productData} />
+                <MethodSection />
               </div>
             </form>
           </div>
@@ -72,7 +61,6 @@ export async function getServerSideProps(context: any) {
       },
     };
   } catch (error) {
-    console.error(error);
     return {
       props: {
         productData: null,

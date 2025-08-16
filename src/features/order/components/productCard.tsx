@@ -29,7 +29,7 @@ export function ProductDataCard({ productData }: { productData: Product[] }) {
           <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 ">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 ">
           {productData.map((item, index) => (
             <div
               key={item.id}
@@ -41,11 +41,11 @@ export function ProductDataCard({ productData }: { productData: Product[] }) {
               {/* Enhanced background with better overlay */}
               <div
                 className="absolute inset-0 bg-cover bg-center opacity-5 group-hover:opacity-15 transition-opacity duration-500 scale-110 group-hover:scale-100"
-                style={{
-                  backgroundImage: `url(${
-                    item.logoUrl ?? "https://placehold.co/300x300?text=No+Image"
-                  })`,
-                }}
+                // style={{
+                //   backgroundImage: `url(${
+                //     item.logoUrl ?? "https://placehold.co/300x300?text=No+Image"
+                //   })`,
+                // }}
               />
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 group-hover:from-primary/10 group-hover:to-secondary/10 transition-all duration-500" />
 

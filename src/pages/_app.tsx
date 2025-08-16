@@ -1,4 +1,5 @@
 import DashboardLayout from "@/components/custom/dashboardLayout";
+import { ReactQueryProvider } from "@/components/providers/reactQueryProvider";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
@@ -10,11 +11,17 @@ export default function App({ Component, pageProps }: AppProps) {
 
   if (isDashboardPage) {
     return (
-      <DashboardLayout>
-        <Component {...pageProps} />
-      </DashboardLayout>
+      <ReactQueryProvider>
+        <DashboardLayout>
+          <Component {...pageProps} />
+        </DashboardLayout>
+      </ReactQueryProvider>
     );
   }
 
-  return <Component {...pageProps} />;
+  return (
+    <ReactQueryProvider>
+      <Component {...pageProps} />;
+    </ReactQueryProvider>
+  );
 }
