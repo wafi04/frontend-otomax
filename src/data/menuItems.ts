@@ -59,8 +59,8 @@ export const menuItems: MenuItem[] = [
     icon: FileText,
     href: "/dashboard/product",
     subItems: [
-      { label: "Categories", href: "/dashboard/product/category" },
-      { label: "Products", href: "/dashboard/product/all" },
+      { label: "Categories", href: "/dashboard/category" },
+      { label: "Products", href: "/dashboard/all" },
       { label: "Sub Category", href: "/dashboard/subcategories" },
     ],
   },
