@@ -1,6 +1,7 @@
 import { ColumnResizer } from "@/components/Table/columnResizer";
 import { EditableCell } from "@/components/Table/editTable";
 import { SortIcon } from "@/components/Table/sortContent";
+import { HeaderDashboard } from "@/dashboard/components/headerDashboard";
 import { useMemo, useState } from "react";
 
 export const DataTable = ({
@@ -88,91 +89,86 @@ export const DataTable = ({
   };
 
   return (
-    <div className="p-4 min-h-screen">
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-        {/* Header */}
-        <div className="px-6 py-4 border-b border-gray-200 bg-white">
-          <h2 className="text-xl font-semibold text-gray-800">{title}</h2>
-          {subtitle && <p className="text-sm text-gray-600 mt-1">{subtitle}</p>}
-        </div>
+    <div className="p-4  min-h-screen">
+      {/* Header */}
+      <HeaderDashboard description={subtitle} title={title} />
 
-        {/* Table */}
-        <div className="overflow-auto" style={{ height: "500px" }}>
-          <table className="w-full text-sm border-separate border-spacing-0">
-            <thead className="sticky top-0 z-10">
-              <tr className="bg-gradient-to-b from-gray-50 to-gray-100 border-b border-gray-300">
+      {/* Table */}
+      <div className="overflow-auto  border-2 mt-6" style={{ height: "500px" }}>
+        <table className="w-full text-sm border-separate border-spacing-0">
+          <thead className="sticky top-0 z-10 ">
+            <tr>
+              {columns.map((column) => (
+                <th
+                  key={column.key}
+                  style={{ width: `${columnWidths[column.key]}px` }}
+                  className={`px-3 py-2 text-left font-semibold text-gray-700 ${
+                    column.sortable
+                      ? "cursor-pointer hover:bg-gradient-to-b hover:from-gray-100 hover:to-gray-200"
+                      : ""
+                  } select-none border-r border-gray-300 last:border-r-0 relative`}
+                  onClick={() => column.sortable && handleSort(column.key)}
+                >
+                  <div className="flex items-center justify-between pr-6">
+                    <span>{column.header}</span>
+                    {column.sortable && (
+                      <SortIcon field={column.key} sortConfig={sortConfig} />
+                    )}
+                  </div>
+                  <ColumnResizer
+                    onResize={(deltaX) =>
+                      handleColumnResize(column.key, deltaX)
+                    }
+                  />
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {sortedData.map((item, index) => (
+              <tr
+                key={item.id}
+                className={`border-b border-gray-200 hover:bg-blue-50 ${
+                  index % 2 === 0 ? "" : "bg-gray-50"
+                }`}
+              >
                 {columns.map((column) => (
-                  <th
+                  <td
                     key={column.key}
+                    className="px-3 py-2 border-r border-gray-200 last:border-r-0 max-w-0 truncate"
                     style={{ width: `${columnWidths[column.key]}px` }}
-                    className={`px-3 py-2 text-left font-semibold text-gray-700 ${
-                      column.sortable
-                        ? "cursor-pointer hover:bg-gradient-to-b hover:from-gray-100 hover:to-gray-200"
-                        : ""
-                    } select-none border-r border-gray-300 last:border-r-0 relative`}
-                    onClick={() => column.sortable && handleSort(column.key)}
+                    onClick={() =>
+                      column.editable &&
+                      setEditingCell({ rowId: item.id, field: column.key })
+                    }
                   >
-                    <div className="flex items-center justify-between pr-6">
-                      <span>{column.header}</span>
-                      {column.sortable && (
-                        <SortIcon field={column.key} sortConfig={sortConfig} />
-                      )}
-                    </div>
-                    <ColumnResizer
-                      onResize={(deltaX) =>
-                        handleColumnResize(column.key, deltaX)
+                    <EditableCell
+                      item={item}
+                      field={column.key}
+                      value={item[column.key]}
+                      column={column}
+                      isEditing={
+                        editingCell?.rowId === item.id &&
+                        editingCell?.field === column.key
                       }
+                      onEdit={handleCellEdit}
                     />
-                  </th>
+                  </td>
                 ))}
               </tr>
-            </thead>
-            <tbody>
-              {sortedData.map((item, index) => (
-                <tr
-                  key={item.id}
-                  className={`border-b border-gray-200 hover:bg-blue-50 ${
-                    index % 2 === 0 ? "bg-white" : "bg-gray-50"
-                  }`}
+            ))}
+            {sortedData.length === 0 && (
+              <tr>
+                <td
+                  colSpan={columns.length}
+                  className="px-6 py-8 text-center text-gray-500"
                 >
-                  {columns.map((column) => (
-                    <td
-                      key={column.key}
-                      className="px-3 py-2 border-r border-gray-200 last:border-r-0 max-w-0 truncate"
-                      style={{ width: `${columnWidths[column.key]}px` }}
-                      onClick={() =>
-                        column.editable &&
-                        setEditingCell({ rowId: item.id, field: column.key })
-                      }
-                    >
-                      <EditableCell
-                        item={item}
-                        field={column.key}
-                        value={item[column.key]}
-                        column={column}
-                        isEditing={
-                          editingCell?.rowId === item.id &&
-                          editingCell?.field === column.key
-                        }
-                        onEdit={handleCellEdit}
-                      />
-                    </td>
-                  ))}
-                </tr>
-              ))}
-              {sortedData.length === 0 && (
-                <tr>
-                  <td
-                    colSpan={columns.length}
-                    className="px-6 py-8 text-center text-gray-500"
-                  >
-                    No data available
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
+                  No data available
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );
