@@ -1,8 +1,8 @@
 import { DataTable } from "@/components/Table/dataTable";
 import { columns } from "../data/column";
-import { Category } from "@/types/category";
+import { Category, CategoryOmit } from "@/types/category";
 
-export const TableCategory = ({ data }: { data: Category[] }) => {
+export const TableCategory = ({ data }: { data: CategoryOmit[] }) => {
   return (
     <DataTable
       data={data}
